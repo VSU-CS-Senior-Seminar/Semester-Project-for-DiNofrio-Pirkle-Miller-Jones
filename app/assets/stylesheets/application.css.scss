@@ -18,21 +18,22 @@
     background: #f1f1f1;
     box-shadow: 10px 10px 5px #5f5f5f;
     
+    
     -moz-border-radius-bottomleft:7px;
-	-webkit-border-bottom-left-radius:7px;
-	border-bottom-left-radius:7px;
+	  -webkit-border-bottom-left-radius:7px;
+	  border-bottom-left-radius:7px;
 	
-	-moz-border-radius-bottomright:7px;
-	-webkit-border-bottom-right-radius:7px;
-	border-bottom-right-radius:7px;
+	  -moz-border-radius-bottomright:7px;
+	  -webkit-border-bottom-right-radius:7px;
+	  border-bottom-right-radius:7px;
 	
-	-moz-border-radius-topright:7px;
-	-webkit-border-top-right-radius:7px;
-	border-top-right-radius:7px;
+    -moz-border-radius-topright:7px;
+	  -webkit-border-top-right-radius:7px;
+	  border-top-right-radius:7px;
 	
-	-moz-border-radius-topleft:7px;
-	-webkit-border-top-left-radius:7px;
-	border-top-left-radius:7px;
+	  -moz-border-radius-topleft:7px;
+	  -webkit-border-top-left-radius:7px;
+	  border-top-left-radius:7px;
   
   legend {
     color: #ffffff;
@@ -41,13 +42,13 @@
     padding: 0.2em 1em;
     text-align: center;
     
-	-moz-border-radius-topright:7px;
-	-webkit-border-top-right-radius:7px;
-	border-top-right-radius:7px;
+	  -moz-border-radius-topright:7px;
+	  -webkit-border-top-right-radius:7px;
+	  border-top-right-radius:7px;
 	
-	-moz-border-radius-topleft:7px;
-	-webkit-border-top-left-radius:7px;
-	border-top-left-radius:7px;
+	  -moz-border-radius-topleft:7px;
+	  -webkit-border-top-left-radius:7px;
+	  border-top-left-radius:7px;
   }
 }
 
@@ -55,7 +56,7 @@ form{
   label{
     width: 5em;
     float: left;
-    text-align: right;
+    text-align: left;
     padding-top: 0.2em;
     margin-right: 0.1em;
     display: block;
@@ -66,7 +67,7 @@ form{
   }
   
   .submit {
-    margin-left: 4em;
+    margin-left: 2em;
   }
   
   br{
@@ -83,8 +84,7 @@ form{
  
 .container2 {
     margin: auto;
-    width: 35%;
-    
+    width: 40%;
 }
 
 html, body {
@@ -92,8 +92,14 @@ html, body {
     width: 100%;
     background-image: url("background-transition.png");
     -webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
    
+}
+
+  
+back_button{
+    margin: auto;
+    padding-bottom: 2em;
 }
