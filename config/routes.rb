@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'newsfeed/index'
 
   resources :posts
+  
+  root 'newsfeed#index', as: 'newsfeed'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
