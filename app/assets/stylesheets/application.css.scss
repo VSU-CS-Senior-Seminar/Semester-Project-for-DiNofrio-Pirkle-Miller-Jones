@@ -80,6 +80,9 @@ form{
 .container1 {
      margin: auto;
      width: 40%;
+     border: 1px solid black;
+     height: 800px;
+     overflow: auto;
  }
  
 .container2 {
@@ -103,3 +106,5 @@ back_button{
     margin: auto;
     padding-bottom: 2em;
 }
+
+
