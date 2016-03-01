@@ -40,14 +40,14 @@
   </thead>
   <tbody> 
     <tr>
-      <td>Category: <%= p.category %></td>
-      <td colspan="2"><%= p.content %></td>
-      
+      <td>Category: <%= p.category %>
+      </td>
+      <td colspan="2">
+        <%= p.content %> 
+        </br></br> 
+        <button heref="#" class="button">Like</button>  Likes: <%= p.likes %>
+      </td>
     </tr>
-    <tr>
-      <td colspan="2"><button heref="#" class="button">Like</button>  Likes: <%= p.likes %></td>
-    </tr>
-   
     <% end %>
   </tbody>
 </table>
