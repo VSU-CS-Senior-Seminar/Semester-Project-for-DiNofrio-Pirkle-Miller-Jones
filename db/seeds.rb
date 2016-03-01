@@ -21,3 +21,48 @@ Post.create!(category: 'Jobs', title: 'Babysitter needed',
 Post.create!(category: 'Misc', title: 'BBQ party: Neighborhood invite',
             content: %{ My family is having a BBQ and would like to invite the neighborhood to join us. 
                         DM us if you are planning to come so we accomodate }, likes: 0)
+
+Post.create!(category: 'Lost & Found', title: 'Found dog',
+            content: %{  I found a Irish Terrier in my yard this morning. if it's yours please
+                        come and claim him. Please don't take forever in coming. He is becoming a hassle.}, 
+            likes: 0)
+            
+            
+Post.create!(category: 'Jobs', title: 'Babysitter needed',
+            content: %{ My wife and I are going to a work related banquet and need a babysitter. 
+                        DM us here for more information. We will also discuss payment. }, likes: 0)
+            
+    
+Post.create!(category: 'Misc', title: 'BBQ party: Neighborhood invite',
+            content: %{ My family is having a BBQ and would like to invite the neighborhood to join us. 
+                        DM us if you are planning to come so we accomodate }, likes: 0)
+                        
+Post.create!(category: 'Lost & Found', title: 'Found dog',
+            content: %{  I found a Irish Terrier in my yard this morning. if it's yours please
+                        come and claim him. Please don't take forever in coming. He is becoming a hassle.}, 
+            likes: 0)
+            
+            
+Post.create!(category: 'Jobs', title: 'Babysitter needed',
+            content: %{ My wife and I are going to a work related banquet and need a babysitter. 
+                        DM us here for more information. We will also discuss payment. }, likes: 0)
+            
+    
+Post.create!(category: 'Misc', title: 'BBQ party: Neighborhood invite',
+            content: %{ My family is having a BBQ and would like to invite the neighborhood to join us. 
+                        DM us if you are planning to come so we accomodate }, likes: 0)
+
+Post.create!(category: 'Lost & Found', title: 'Found dog',
+            content: %{  I found a Irish Terrier in my yard this morning. if it's yours please
+                        come and claim him. Please don't take forever in coming. He is becoming a hassle.}, 
+            likes: 0)
+            
+            
+Post.create!(category: 'Jobs', title: 'Babysitter needed',
+            content: %{ My wife and I are going to a work related banquet and need a babysitter. 
+                        DM us here for more information. We will also discuss payment. }, likes: 0)
+            
+    
+Post.create!(category: 'Misc', title: 'BBQ party: Neighborhood invite',
+            content: %{ My family is having a BBQ and would like to invite the neighborhood to join us. 
+                        DM us if you are planning to come so we accomodate }, likes: 0)

@@ -32,22 +32,24 @@
 <div class="container1">
 <table id="Newsfeed", class="table table-hover">
     <thead>
+      <% @posts.each do |p| %>
     <tr>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Likes</th>
+      <th colspan="2">Title: <%= p.title %></th>
     </tr>
+    
   </thead>
   <tbody> 
-    <% @posts.each do |p| %>
     <tr>
-        <td><%= p.category %></td>
-        <td><%= p.title %></td>
-        <td><%= p.content %></td>
-        <td><%= p.likes %></td>
+      <td>Category: <%= p.category %></td>
+      <td colspan="2"><%= p.content %></td>
+      
     </tr>
+    <tr>
+      <td colspan="2"><button heref="#" class="button">Like</button>  Likes: <%= p.likes %></td>
+    </tr>
+   
     <% end %>
   </tbody>
 </table>
+
 </div>
