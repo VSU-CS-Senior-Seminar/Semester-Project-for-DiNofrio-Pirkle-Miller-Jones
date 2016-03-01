@@ -54,7 +54,10 @@
       <% end %>
     </tbody>
   </table>
-</container>
+</div>
 <br>
+<div class= "containerPaginate">
+  <p><%= will_paginate @posts %></p>
+</div>
 
-<p><%= link_to 'New Post', new_post_path %></p>
+
