@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :category
       t.string :title
       t.text :content
-      t.integer :likes
+      t.integer :likes, :default => '0'
 
       t.timestamps null: false
     end
