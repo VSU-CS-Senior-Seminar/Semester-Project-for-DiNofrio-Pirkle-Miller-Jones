@@ -15,7 +15,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to 'NewsFeed', newsfeed_path %></li>
-        <li><%= link_to 'New Post', new_post_path %></li>
         <li><%= link_to 'Posts', posts_path %></li>
       </ul>
        
@@ -29,27 +28,31 @@
 
 
 <h1>Newsfeed page</h1>
-<div class="container1">
-<table id="Newsfeed", class="table table-hover">
-    <thead>
-      <% @posts.each do |p| %>
-    <tr>
-      <th colspan="2">Title: <%= p.title %></th>
-    </tr>
-    
-  </thead>
-  <tbody> 
-    <tr>
-      <td>Category: <%= p.category %>
-      </td>
-      <td colspan="2">
-        <%= p.content %> 
-        </br></br> 
-        <button heref="#" class="button">Like</button>  Likes: <%= p.likes %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 
+<div class="containerNewButton">
+  <button class="button"><%= link_to 'New Post', new_post_path, {:style=>'color:#ffffff;'} %></button>
+</div>
+
+<div class="container1">
+  <table id="Newsfeed", class="table table-hover">
+      <thead>
+        <% @posts.each do |p| %>
+        <tr>
+          <th colspan="2">Title: <%= p.title %></th>
+        </tr>
+      </thead>
+    <tbody> 
+      <tr>
+        <td>
+          Category: <%= p.category %>
+        </td>
+        <td colspan="2">
+          <%= p.content %> 
+          </br></br> 
+          <button heref="#" class="button">Like</button>  Likes: <%= p.likes %>
+        </td>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
 </div>
