@@ -115,14 +115,17 @@ form{
 html, body {
     margin: auto;
     width: 100%;
-    background-image: url("background-transition.png");
+    //background-image: url("background-transition.png");
+    background-color: #4d4d4d;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
    
 }
-
+ h1{
+   color: white;
+ }
   
 back_button{
     margin: auto;
