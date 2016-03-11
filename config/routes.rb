@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'login/index'
+
   get 'newsfeed/index'
 
   resources :posts
-  
-  root 'newsfeed#index', as: 'newsfeed'
+  root 'login#index', as: 'login'
+  #root 'newsfeed#index', as: 'newsfeed'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
