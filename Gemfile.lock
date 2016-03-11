@@ -86,11 +86,8 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
-<<<<<<< HEAD
     pg (0.15.1)
-=======
     orm_adapter (0.5.0)
->>>>>>> 3803acd1d29d2b2efaa5d98ba32610f22c9477a4
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
