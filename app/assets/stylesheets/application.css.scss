@@ -58,15 +58,17 @@ form{
     float: left;
     text-align: left;
     padding-top: 0.2em;
-    margin-right: 0.1em;
+    margin-right: 2em;
     display: block;
   }
   
   select, textarea, input {
     margin-left: 0.5em;
+    margin-bottom: 0.5em;
   }
   
   .submit {
+    margin-top: 0.5em;
     margin-left: 2em;
   }
   
