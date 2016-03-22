@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get 'newsfeed/index'
 
   resources :posts
-  root 'login#index', as: 'login'
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+  #root 'login#index', as: 'login'
   #root 'newsfeed#index', as: 'newsfeed'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
