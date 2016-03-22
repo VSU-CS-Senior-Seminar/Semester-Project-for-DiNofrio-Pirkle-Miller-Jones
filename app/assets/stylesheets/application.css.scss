@@ -58,15 +58,17 @@ form{
     float: left;
     text-align: left;
     padding-top: 0.2em;
-    margin-right: 0.1em;
+    margin-right: 2em;
     display: block;
   }
   
   select, textarea, input {
     margin-left: 0.5em;
+    margin-bottom: 0.5em;
   }
   
   .submit {
+    margin-top: 0.5em;
     margin-left: 2em;
   }
   
@@ -81,7 +83,7 @@ form{
      margin: auto;
      width: 40%;
      border: 1px solid grey;
-     height: 800px;
+     height: 750px;
      overflow: auto;
      background-color: #b0b0b0;
      
@@ -115,14 +117,17 @@ form{
 html, body {
     margin: auto;
     width: 100%;
-    background-image: url("background-transition.png");
+    //background-image: url("background-transition.png");
+    background-color: #4d4d4d;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
    
 }
-
+ h1{
+   color: white;
+ }
   
 back_button{
     margin: auto;
