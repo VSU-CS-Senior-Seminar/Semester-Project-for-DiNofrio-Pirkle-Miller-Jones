@@ -1,3 +1,22 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.button {
+        border-top: 1px solid #d9d9d9;
+        background: -webkit-linear-gradient(top, #000000, #454545);
+        padding: 3px 6px;
+        border-radius: 3px;
+        color: white;
+        font-size: 12px;
+        vertical-align: middle;
+    }
+
+h1 {
+      text-align: center;
+    }
+    
+    th {
+        background-color: #262626;
+        color: white;
+        text-align: center;
+    }

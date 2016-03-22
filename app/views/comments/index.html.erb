@@ -28,30 +28,60 @@
 
 <h1>Listing Comments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Content</th>
-      <th>Likes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Username</th>-->
+<!--      <th>Content</th>-->
+<!--      <th>Likes</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
 
-  <tbody>
-    <% @comments.each do |comment| %>
+<!--  <tbody>-->
+<!--    <% @comments.each do |comment| %>-->
+<!--      <tr>-->
+<!--        <td><%= comment.username %></td>-->
+<!--        <td><%= comment.content %></td>-->
+<!--        <td><%= comment.likes %></td>-->
+<!--        <td><%= link_to 'Show', comment %></td>-->
+<!--        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>-->
+<!--        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+<!--    <% end %>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<div class="containerNewButton">
+  <button class="button"><%= link_to 'New Comment', new_comment_path, {:style=>'color:#ffffff;'} %></button>
+</div>
+
+<div class="container1">
+  <table id="Newsfeed", class="table table-hover">
+      <thead>
+        <% @comments.each do |c| %>
+        <tr>
+          <th colspan="2">Username: <%= c.username %></th>
+        </tr>
+      </thead>
+    <tbody> 
       <tr>
-        <td><%= comment.username %></td>
-        <td><%= comment.content %></td>
-        <td><%= comment.likes %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td colspan="2">
+          <%= c.content %> 
+          </br></br> 
+          <button heref="#" class="button">Like</button>  Likes: <%= c.likes %> 
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+        <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
+
+
 <%= link_to 'New Comment', new_comment_path %>
+
+
+
