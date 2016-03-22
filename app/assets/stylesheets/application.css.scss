@@ -16,7 +16,7 @@
 .post_form {
   fieldset {
     background: #f1f1f1;
-    box-shadow: 10px 10px 5px #5f5f5f;
+    box-shadow: 5px 5px 5px #000000;
     
     
     -moz-border-radius-bottomleft:7px;
@@ -95,7 +95,14 @@ form{
  
 .container2 {
     margin: auto;
-    width: 40%;
+    width: 36%;
+}
+
+.container_login_signup {
+  margin: auto;
+  width: 35%;
+  //border: 1px solid white;
+  padding-top: 15%;
 }
 
 .containerPaginate{
