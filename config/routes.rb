@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :comments
 
   get 'newsfeed/index'
-
+  get 'comments/index'
+  
+  
   resources :posts
   devise_scope :user do
     root to: "devise/sessions#new"
