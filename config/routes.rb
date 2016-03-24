@@ -6,11 +6,14 @@ Rails.application.routes.draw do
 
   get 'newsfeed/index'
   get 'comments/index'
-  
-  
+  #get 'posts'
   resources :posts
-  devise_scope :user do
-    root to: "devise/sessions#new"
+  if (@users)
+    root 'newsfeed#index', as: 'newsfeed'
+  else
+    devise_scope :user do
+      root to: "devise/sessions#new"
+    end
   end
   #root 'login#index', as: 'login'
   #root 'newsfeed#index', as: 'newsfeed'
