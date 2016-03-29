@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
   
+  resources :posts do
+    resources :comments
+  end
+  
   root 'newsfeed#index'
   get 'comments/index'
   get 'newsfeed/index'
