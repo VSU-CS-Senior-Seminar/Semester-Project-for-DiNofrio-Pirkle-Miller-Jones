@@ -3,18 +3,12 @@ Rails.application.routes.draw do
   get 'login/index'
 
   resources :comments
-
-  get 'newsfeed/index'
-  get 'comments/index'
-  #get 'posts'
   resources :posts
-  if (@users)
-    root 'newsfeed#index', as: 'newsfeed'
-  else
-    devise_scope :user do
-      root to: "devise/sessions#new"
-    end
-  end
+  
+  root 'newsfeed#index'
+  get 'comments/index'
+  get 'newsfeed/index'
+  
   #root 'login#index', as: 'login'
   #root 'newsfeed#index', as: 'newsfeed'
   # The priority is based upon order of creation: first created -> highest priority.

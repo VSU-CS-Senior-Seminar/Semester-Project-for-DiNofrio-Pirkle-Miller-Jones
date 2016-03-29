@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20160311174732) do
     t.string   "category"
     t.string   "title"
     t.text     "content"
-    t.integer  "likes",      default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
