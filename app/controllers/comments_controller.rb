@@ -4,7 +4,12 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    if (params[:post_id])
+      @post = Post.find(params[:post_id])
+      @comments = @post.comments
+    else
+      @comments = Comment.all
+    end 
   end
 
   # GET /comments/1
@@ -15,6 +20,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = current_user.comments.build
+    @post = Post.find(params[:post_id])
   end
 
   # GET /comments/1/edit
@@ -25,7 +31,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = current_user.comments.build(comment_params)
-
+    @comment.post_id = params[:post_id]
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_to newsfeed_index_path }
