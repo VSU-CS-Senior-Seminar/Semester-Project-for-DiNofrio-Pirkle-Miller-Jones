@@ -47,12 +47,11 @@
       <tr>
         <td>
           Category: <%= p.category %>
+          </br></br>
+          <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
         </td>
-        <td colspan="2">
-          <%= p.content %> 
-          </br></br> 
-          <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %> 
-          
+        <td colspan="3">
+          <%= p.content %>
         </td>
       </tr>
         <% end %>

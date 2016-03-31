@@ -6,3 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   check for commit
+User.delete_all
+User.transaction do
+User.create( :name => 'CJ',
+             :email => 'cjdinofrio@valdosta.edu',
+             :password => 'blahblah', 
+             :password_confirmation => 'blahblah',
+             :zipcode => '30552')
+User.create( :name => 'Joe',
+             :email => 'josepjones@valdosta.edu',
+             :password => 'joseph210', 
+             :password_confirmation => 'joseph210',
+             :zipcode => '30552')
+User.create( :name => 'Tayler',
+             :email => 'tcmiller@valdosta.edu',
+             :password => 'herpderp', 
+             :password_confirmation => 'herpderp',
+             :zipcode => '31539')
+User.create( :name => 'Andrew',
+             :email => 'acpirkle@valdosta.edu',
+             :password => 'password', 
+             :password_confirmation => 'password',
+             :zipcode => '31539')
+end
