@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to newsfeed_index_path }
+        format.html { redirect_to post_comments_path }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

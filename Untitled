@@ -5,3 +5,5 @@ bundle exec figaro install //creates application.yml file
 Edit the config/application.yml file:
 SENDGRID_USERNAME: your_sendgrid_username 
 SENDGRID_PASSWORD: your_sendgrid_username
+
+rails s -b $IP -p $PORT
