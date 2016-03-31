@@ -37,7 +37,9 @@
   <table id="Newsfeed", class="table table-hover">
       <thead>
         <% @posts.each do |p| %>
+        <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
         <tr>
+          <th colspan="1">User: <%= User.find(p.user_id).name %></th>
           <th colspan="2">Title: <%= p.title %></th>
         </tr>
       </thead>
@@ -53,6 +55,7 @@
           
         </td>
       </tr>
+        <% end %>
         <% end %>
     </tbody>
   </table>
