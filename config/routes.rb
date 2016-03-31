@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registration: 'registration' }
   get 'login/index'
 
   resources :comments

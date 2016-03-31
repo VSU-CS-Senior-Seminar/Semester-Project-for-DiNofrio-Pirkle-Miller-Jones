@@ -7,3 +7,12 @@ SENDGRID_USERNAME: your_sendgrid_username
 SENDGRID_PASSWORD: your_sendgrid_username
 
 rails s -b $IP -p $PORT
+
+TODO:
+
+zipcode to create specific neighborhoods
+create USER types: Leads, businesses
+event calendar
+group creation + messaging
+business/agency broadcast area
+rss
