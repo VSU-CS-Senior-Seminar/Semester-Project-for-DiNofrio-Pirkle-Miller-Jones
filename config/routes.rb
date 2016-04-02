@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registration: 'registration' }
   get 'login/index'
 
+  resources :users
   resources :comments
   resources :posts
   
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   root 'newsfeed#index'
   get 'comments/index'
   get 'newsfeed/index'
+  get 'users/index'
   
   #root 'login#index', as: 'login'
   #root 'newsfeed#index', as: 'newsfeed'
