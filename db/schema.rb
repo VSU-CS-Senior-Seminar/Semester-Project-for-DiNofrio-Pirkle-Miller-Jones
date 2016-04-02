@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331182618) do
+ActiveRecord::Schema.define(version: 20160402191322) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "username"
@@ -54,7 +54,8 @@ ActiveRecord::Schema.define(version: 20160331182618) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "zipcode",                              null: false
+    t.string   "zipcode",                             null: false
+    t.integer  "role",                  default: 1,   null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

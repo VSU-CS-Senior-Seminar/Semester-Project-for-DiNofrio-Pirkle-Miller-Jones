@@ -14,4 +14,6 @@ create USER types: Leads, businesses
 event calendar
 group creation + messaging
 business/agency broadcast area
+admin dashboard
+authorization
 rss
