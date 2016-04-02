@@ -11,7 +11,7 @@ class UserPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    @current_user.admin? || @current_user == @user
   end
 
   def create?
@@ -23,7 +23,7 @@ class UserPolicy
   end
 
   def update?
-    false
+    @current_user.admin? || @current_user == @user
   end
 
   def edit?
@@ -31,7 +31,7 @@ class UserPolicy
   end
 
   def destroy?
-    false
+    return false if @current_user == @user
   end
 
   def scope
