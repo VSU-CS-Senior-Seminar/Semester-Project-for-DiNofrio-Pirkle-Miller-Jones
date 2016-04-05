@@ -9,6 +9,12 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href=<%= newsfeed_index_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %></a>
+      
+      <%= link_to edit_user_registration_path(current_user) do %>
+        <img class="settings-logo" src="/assets/settings.png">
+      <% end %>
+     
+      
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

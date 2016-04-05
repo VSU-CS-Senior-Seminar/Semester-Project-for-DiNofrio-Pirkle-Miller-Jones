@@ -98,6 +98,11 @@ form{
     width: 35%;
 }
 
+.container {
+  margin: auto;
+  width: 80%;
+}
+
 .container3 {
      margin: auto;
      width: 100%;
@@ -166,4 +171,14 @@ back_button{
 .form-text {
   text-align: left;
   color: white;
+}
+
+.settings-logo {
+  width: 35px; 
+  height: 40px; 
+  padding-top: 10px;
+}
+
+.messages {
+  margin: 0;
 }
