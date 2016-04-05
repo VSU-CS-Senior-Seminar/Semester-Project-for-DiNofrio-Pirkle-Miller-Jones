@@ -31,16 +31,18 @@
 
   <div class="container2">
   <div class="panel panel-default">
-    <div class="panel-heading"><%= @conversation.subject %></div>
+    <div class="panel-heading"><h4 style="font-size: 20px"><b><%= @conversation.subject %></b></h4></div>
   
     <div class="panel-body">
       <div class="messages">
         <% @conversation.receipts_for(current_user).each do |receipt| %>
           <% message = receipt.message %>
   
-          <%= message.sender.name %>
-            says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-          <%= message.body %>
+          <%= message.sender.name %>: <%= message.body %>
+          </br>
+            sent on <%= message.created_at.strftime("%B %-d %Y, @ %H:%M:%S") %>
+          </br>
+          </br>
         <% end %>
       </div>
     </div>
