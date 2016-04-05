@@ -10,7 +10,7 @@ ul.nav > li > a:hover {
 .btn-primary {
     color: black;
     background-color: white;
-    border-color: white;
+    border-color: black;
 }
 
 .btn-primary:hover {
@@ -24,8 +24,20 @@ ul.nav > li > a:hover {
     background: black;
     border-color: red;
 }    
+
 .btn-primary:active {
     background: black !important; 
     border-color: red;
 }
 
+.list-group-item {
+    border-color:black;
+}
+
+.form-control{
+    border-color:black;
+}
+
+.text-form{
+    font-color: white;
+}

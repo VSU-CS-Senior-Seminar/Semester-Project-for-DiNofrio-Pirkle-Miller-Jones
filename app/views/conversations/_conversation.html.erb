@@ -1,3 +1,4 @@
 <li class="list-group-item clearfix">
-  <%= link_to conversation.subject, conversation_path(conversation) %>
+  <% message = conversation.receipts_for(current_user).first.message %>
+  Converstion Created by <%= message.sender.name %>: <%= link_to conversation.subject, conversation_path(conversation) %>
 </li>

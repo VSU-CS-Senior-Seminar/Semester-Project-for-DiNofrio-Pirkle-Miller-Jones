@@ -38,7 +38,7 @@
             
             <div class="field">
               <%= f.label :role %><br>
-              <%= f.select :role, User.roles.keys.to_a, :disabled => [0, 1] %>
+              <%= f.select :role, User.roles.keys.to_a, :disabled => ["admin", "lead"] %>
             </div>
           
             <div class="actions">

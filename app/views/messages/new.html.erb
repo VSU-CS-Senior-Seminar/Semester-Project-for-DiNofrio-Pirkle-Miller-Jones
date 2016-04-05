@@ -32,17 +32,17 @@
 <div class="container2">
 <%= form_tag messages_path, method: :post do %>
   <div class="form-group">
-    <%= label_tag 'message[subject]', 'Subject' %>
+    <p class="form-text"><%= label_tag 'message[subject]', 'Subject' %></p>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
   </div>
 
   <div class="form-group">
-    <%= label_tag 'message[body]', 'Message' %>
+    <p class="form-text"><%= label_tag 'message[body]', 'Message' %></p>
     <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
   </div>
 
   <div class="form-group">
-    <%= label_tag 'recipients', 'Choose recipients' %>: Hold CTRL & click multiple users to send a group message.
+    <p class="form-text"><%= label_tag 'recipients', 'Choose recipients' %>: Hold CTRL & click multiple users to send a group message.</p>
     <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control' %>
   </div>
 
