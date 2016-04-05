@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [:admin, :user, :lead, :business, :agency]
+  enum role: [:admin, :lead, :user, :business, :agency]
   acts_as_messageable
 
   devise :database_authenticatable, :registerable,

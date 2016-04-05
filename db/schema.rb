@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20160404193809) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zipcode",                             null: false
-    t.integer  "role"
+    t.integer  "role",                   default: 2,  null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
