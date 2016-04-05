@@ -1,8 +1,14 @@
 source 'https://rubygems.org'
 gem 'mailboxer'
+
 gem 'devise', '3.4.1'
+
 gem 'will_paginate'
+
 gem 'bootstrap-sass'
+
+gem 'jquery-ui-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
