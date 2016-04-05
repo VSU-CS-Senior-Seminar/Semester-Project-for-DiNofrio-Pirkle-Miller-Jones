@@ -1,2 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+ul.nav > li > a:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-style: none;
+}

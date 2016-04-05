@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Big Brother</a>
+      <a class="navbar-brand" href=<%= newsfeed_index_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,32 +32,137 @@
 <h1>Newsfeed page</h1>
 
 <div class="containerNewButton">
-  <button class="button"><%= link_to 'New Post', new_post_url, {:style=>'color:#ffffff;'} %></button>
+  
+  <ul class="nav nav-tabs">
+    
+    <li class="active"><a data-toggle="tab" href="#all">All</a></li>
+    <li><a data-toggle="tab" href="#jobs">Jobs</a></li>
+    <li><a data-toggle="tab" href="#misc">Misc</a></li>
+    <li><a data-toggle="tab" href="#lostnfound">Lost-n-Found</a></li>
+    <button class="button" style="float: right"><%= link_to 'New Post', new_post_url, {:style=>'color:#ffffff;'} %></button>
+  </ul>
+
 </div>
 
 <div class="container1">
-  <table id="Newsfeed", class="table table-hover">
-      <thead>
-        <% @posts.each do |p| %>
-        <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
-        <tr>
-          <th colspan="1">User: <%= User.find(p.user_id).name %></th>
-          <th colspan="2">Title: <%= p.title %></th>
-        </tr>
-      </thead>
-    <tbody> 
-      <tr>
-        <td>
-          Category: <%= p.category %>
-          </br></br>
-          <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
-        </td>
-        <td colspan="3">
-          <%= p.content %>
-        </td>
-      </tr>
-        <% end %>
-        <% end %>
-    </tbody>
-  </table>
+  <div class="tab-content">
+    
+    <div id="all" class="tab-pane fade in active">
+      <table id="newsfeed", class="table table-hover">
+        <thead>
+          <% @posts.each do |p| %>
+            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+              <tr>
+                <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
+                <th>Title: <%= p.title %></th>
+              </tr>
+        </thead>
+        <tbody> 
+          <tr>
+            <td>
+              Category: <%= p.category %>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
+            </td>
+            <td>
+              <%= p.content %>
+            </td>
+          </tr>
+         
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    
+    <div id="jobs" class="tab-pane fade">
+      <table id="Newsfeed", class="table table-hover">
+        <thead>
+          <% @posts.each do |p| %>
+            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+              <% if p.category.eql? 'Jobs' %>
+                <tr>
+                  <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
+                  <th>Title: <%= p.title %></th>
+                </tr>
+        </thead>
+        <tbody> 
+          <tr>
+            <td>
+              Category: <%= p.category %>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
+            </td>
+            <td>
+              <%= p.content %>
+            </td>
+          </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    
+    <div id="misc" class="tab-pane fade">
+      <table id="Newsfeed", class="table table-hover">
+        <thead>
+          <% @posts.each do |p| %>
+            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+              <% if p.category.eql? 'Misc' %>
+                <tr>
+                  <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
+                  <th>Title: <%= p.title %></th>
+                </tr>
+        </thead>
+        <tbody> 
+          <tr>
+            <td>
+              Category: <%= p.category %>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
+            </td>
+            <td>
+              <%= p.content %>
+            </td>
+          </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    <div id="lostnfound" class="tab-pane fade">
+      <table id="Newsfeed", class="table table-hover">
+        <thead>
+          <% @posts.each do |p| %>
+            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+              <% if p.category.eql? 'Lost & Found' %>
+                <tr>
+                  <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
+                  <th>Title: <%= p.title %></th>
+                </tr>
+        </thead>
+        <tbody> 
+          <tr>
+            <td>
+              Category: <%= p.category %>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
+            </td>
+            <td>
+              <%= p.content %>
+            </td>
+          </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
 </div>
