@@ -1,13 +1,44 @@
-<p><strong>From:</strong> <%= @message.sender == @user ? link_to("You", user_path(@user)) : link_to(h(@message.sender.login), user_path(@message.sender)) %></p>
-<p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
-<p><strong>To:</strong> <%= @message.recipient == @user ? link_to("You", user_path(@user)) : link_to(h(@message.recipient.login), user_path(@message.recipient)) %></p>
-<p>
-  <strong>Message</strong><br />
-  <%=h @message.body %>
-</p>
-<p>
-  <% if @message.recipient == @user %>
-	  <%= link_to "Reply", new_user_message_path(@user, :reply_to => @message) %> |
-  <% end %>
-  <%= link_to "Inbox", user_messages_path(@user)%>
-</p>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href=<%= newsfeed_index_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'NewsFeed', newsfeed_index_path %></li>
+        <li><%= link_to 'Posts', posts_path %></li>
+      </ul>
+       
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Inbox", conversations_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container2">
+  <p><strong>From:</strong> <%= @message.sender == @user ? link_to("You", user_path(@user)) : link_to(h(@message.sender.login), user_path(@message.sender)) %></p>
+  <p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
+  <p><strong>To:</strong> <%= @message.recipient == @user ? link_to("You", user_path(@user)) : link_to(h(@message.recipient.login), user_path(@message.recipient)) %></p>
+  <p>
+    <strong>Message</strong><br />
+    <%=h @message.body %>
+  </p>
+  <p>
+    <% if @message.recipient == @user %>
+  	  <%= link_to "Reply", new_user_message_path(@user, :reply_to => @message) %> |
+    <% end %>
+    <%= link_to "Inbox", user_messages_path(@user)%>
+  </p>
+</div>

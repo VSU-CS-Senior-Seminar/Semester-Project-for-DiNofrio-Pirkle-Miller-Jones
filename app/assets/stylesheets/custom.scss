@@ -6,3 +6,26 @@ ul.nav > li > a:hover {
     color: #FFFFFF;
     border-style: none;
 }
+
+.btn-primary {
+    color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: black;
+    border-color: grey;
+}
+
+
+.btn-primary:focus {
+    background: black;
+    border-color: red;
+}    
+.btn-primary:active {
+    background: black !important; 
+    border-color: red;
+}
+
