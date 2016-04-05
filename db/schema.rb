@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404193809) do
+ActiveRecord::Schema.define(version: 20160405193647) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "username"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20160404193809) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "post_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "content"
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
