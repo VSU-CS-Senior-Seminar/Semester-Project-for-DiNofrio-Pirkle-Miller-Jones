@@ -29,9 +29,9 @@
 <div id="events">
     <%= calendar do |date| %>
       <%= date.day %>
-      <% if @events_by_date[date] %>
         <ul>
-          <%= @events_by_date[date].each do |event| %>
+          <% @events_by_date.each do |event| %>
+          <% if (event.start_time == date) %>
             <li>
               <%= link_to event.name, event %>
             </li>

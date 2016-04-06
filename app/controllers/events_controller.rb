@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @events_by_date = @events.group_by(&:start_time)
+    @events_by_date = Event.order(:start_time)
   end
 
   # GET /events/1
