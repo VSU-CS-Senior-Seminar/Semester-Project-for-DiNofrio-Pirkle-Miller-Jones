@@ -48,151 +48,190 @@
   </ul>
 
 </div>
-
-<div class="container1">
-  <div class="tab-content">
-    
-    <div id="all" class="tab-pane fade in active">
-      <table id="newsfeed", class="table table-hover">
-        <thead>
-          <% @posts.each do |p| %>
-            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
-              <tr>
-                <th>Title: <%= p.title %>
-                </br>
-                <%if User.find(p.user_id).name.eql?current_user.name %>
-                  <%= link_to "edit", edit_post_path(p) %>
-                  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %></th>
-              </tr>
-        </thead>
-        <tbody> 
-          <tr>
-            <td>
-              User: <%= User.find(p.user_id).name %>
-              </br>
-              Category: <%= p.category %>
-              </br></br>
-              <p><%= p.content %></p>
-              </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> 
-              </br>
-              <a style="color:black;"><%= link_to "Comments", post_comments_path(p) %> </p>
-            </td>
-          </tr>
+<table style="width: 100%">
+  <tr>
+    <td style="width: 30%; border: none;">
+     <div class=".containerNewButton" style="text-align: center">
+     <button class="button"><%= link_to("New Event", new_event_path, data: { no_turbolink: true} , :style=>'color:#ffffff;') %></button>
+         </br></br>
+      </div>
+      
+      <div id="events">
+        <%= calendar do |date| %>
+          <%= date.day %>
+          <ul>
+            <% @events.each do |event| %>
+            <% if (event.day_of == date) %>
+              <li>
+                <%= link_to event.name, event %>
+              </li>
             <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    
-    
-    <div id="jobs" class="tab-pane fade">
-      <table id="Newsfeed", class="table table-hover">
-        <thead>
-          <% @posts.each do |p| %>
-            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
-              <% if p.category.eql? 'Jobs' %>
-                <tr>
-                <th>Title: <%= p.title %>
-                  </br>
-                  <%if User.find(p.user_id).name.eql?current_user.name %>
-                    <%= link_to "edit", edit_post_path(p) %>
-                    <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <% end %>
-                </th>
-              </tr>
-        </thead>
-        <tbody> 
-          <tr>
-            <td>
-              User: <%= User.find(p.user_id).name %>
-              </br>
-              Category: <%= p.category %>
-              </br></br>
-              <p><%= p.content %></p>
-              </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
-            </td>
-          </tr>
-              <% end %>
+          </ul>
             <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    
-    
-    <div id="misc" class="tab-pane fade">
-      <table id="Newsfeed", class="table table-hover">
-        <thead>
-          <% @posts.each do |p| %>
-            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
-              <% if p.category.eql? 'Misc' %>
-                <tr>
-                <th>Title: <%= p.title %>
-                </br>
-                <%if User.find(p.user_id).name.eql?current_user.name %>
-                  <%= link_to "edit", edit_post_path(p) %>
-                  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
-                </th>
-              </tr>
-        </thead>
-        <tbody> 
-          <tr>
-            <td>
-              User: <%= User.find(p.user_id).name %>
-              </br>
-              Category: <%= p.category %>
-              </br></br>
-              <p><%= p.content %></p>
-              </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
-            </td>
-          </tr>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    
-    <div id="lostnfound" class="tab-pane fade">
-      <table id="Newsfeed", class="table table-hover">
-        <thead>
-          <% @posts.each do |p| %>
-            <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
-              <% if p.category.eql? 'Lost & Found' %>
-                <tr>
-                <th>Title: <%= p.title %>
-                </br>
-                <%if User.find(p.user_id).name.eql?current_user.name %>
-                  <%= link_to "edit", edit_post_path(p) %>
-                  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
-                </th>
-              </tr>
-        </thead>
-        <tbody> 
-          <tr>
-            <td>
-              User: <%= User.find(p.user_id).name %>
-              </br>
-              Category: <%= p.category %>
-              </br></br>
-              <p><%= p.content %></p>
-              </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
-            </td>
-          </tr>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    
-  </div>
+        <% end %>
+      </div>
+      </br>
+    </td>
   
-</div>
+  <td rowspan="2" style="width: 40%; border: none;">
+    <div class="newsfeed-container">
+      <div class="tab-content">
+        
+        <div id="all" class="tab-pane fade in active">
+          <table id="newsfeed", class="table table-hover">
+            <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                  <tr>
+                    <th>Title: <%= p.title %>
+                    </br>
+                    <%if User.find(p.user_id).name.eql?current_user.name %>
+                      <%= link_to "edit", edit_post_path(p) %>
+                      <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %></th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  User: <%= User.find(p.user_id).name %>
+                  </br>
+                  Category: <%= p.category %>
+                  </br></br>
+                  <p><%= p.content %></p>
+                  </br></br>
+                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> 
+                  </br>
+                  <a style="color:black;"><%= link_to "Comments", post_comments_path(p) %> </p>
+                </td>
+              </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div id="jobs" class="tab-pane fade">
+          <table id="Newsfeed", class="table table-hover">
+            <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                  <% if p.category.eql? 'Jobs' %>
+                    <tr>
+                    <th>Title: <%= p.title %>
+                      </br>
+                      <%if User.find(p.user_id).name.eql?current_user.name %>
+                        <%= link_to "edit", edit_post_path(p) %>
+                        <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  User: <%= User.find(p.user_id).name %>
+                  </br>
+                  Category: <%= p.category %>
+                  </br></br>
+                  <p><%= p.content %></p>
+                  </br></br>
+                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
+                </td>
+              </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div id="misc" class="tab-pane fade">
+          <table id="Newsfeed", class="table table-hover">
+            <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                  <% if p.category.eql? 'Misc' %>
+                    <tr>
+                    <th>Title: <%= p.title %>
+                    </br>
+                    <%if User.find(p.user_id).name.eql?current_user.name %>
+                      <%= link_to "edit", edit_post_path(p) %>
+                      <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                    </th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  User: <%= User.find(p.user_id).name %>
+                  </br>
+                  Category: <%= p.category %>
+                  </br></br>
+                  <p><%= p.content %></p>
+                  </br></br>
+                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
+                </td>
+              </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        
+        <div id="lostnfound" class="tab-pane fade">
+          <table id="Newsfeed", class="table table-hover">
+            <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                  <% if p.category.eql? 'Lost & Found' %>
+                    <tr>
+                    <th>Title: <%= p.title %>
+                    </br>
+                    <%if User.find(p.user_id).name.eql?current_user.name %>
+                      <%= link_to "edit", edit_post_path(p) %>
+                      <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                    </th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  User: <%= User.find(p.user_id).name %>
+                  </br>
+                  Category: <%= p.category %>
+                  </br></br>
+                  <p><%= p.content %></p>
+                  </br></br>
+                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
+                </td>
+              </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      
+    </div>
+  </td>
+<td style="width: 30%; border: none;">
+  <div class="businesses"></div>
+</td>
+<tr>
+  <td style="height: 325px; border: none;" >
+    <div class ="my-events"></div>
+  </td>
+  <td style="height: 325px; border: none;">
+    <div class ="my-events"></div>
+  </td>
+</tr>
+</tr>
+</table>

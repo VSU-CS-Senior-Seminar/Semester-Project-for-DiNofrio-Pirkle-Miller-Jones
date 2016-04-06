@@ -3,5 +3,6 @@ class NewsfeedController < ApplicationController
   
   def index
     @posts = Post.all.reverse_order
+    @events = Event.all
   end
 end

@@ -95,6 +95,48 @@ form{
     -o-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
  }
  
+ .my-events {
+     margin: auto;
+     width: 80%;
+     border: 1px solid black;
+     height: 315px;
+     overflow: auto;
+     background:rgba(255,255,255,0.6);
+     
+     box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -webkit-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -moz-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -o-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+ }
+ 
+ .businesses {
+     margin: auto;
+     width: 80%;
+     border: 1px solid black;
+     height: 425px;
+     overflow: auto;
+     background:rgba(255,255,255,0.6);
+     
+     box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -webkit-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -moz-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -o-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+ }
+ 
+ .newsfeed-container {
+     margin: auto;
+     width: 100%;
+     border: 1px solid grey;
+     height: 750px;
+     overflow: auto;
+     background:rgba(255,255,255,0.6);
+     
+     box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -webkit-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -moz-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+    -o-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
+ }
+ 
 .container2 {
     margin: auto;
     width: 35%;
