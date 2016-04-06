@@ -61,10 +61,12 @@
           <%= date.day %>
           <ul>
             <% @events.each do |event| %>
-            <% if (event.day_of == date) %>
+            <% if event.day_of == date %>
+            <% if User.find(event.user_id).zipcode.eql?current_user.zipcode %>
               <li>
                 <%= link_to event.name, event %>
               </li>
+            <% end %>
             <% end %>
           </ul>
             <% end %>
