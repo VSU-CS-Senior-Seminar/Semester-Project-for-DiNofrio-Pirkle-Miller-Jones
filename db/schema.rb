@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406201001) do
+ActiveRecord::Schema.define(version: 20160406211404) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "username"
     t.text     "content"
-    t.integer  "likes"
+    t.integer  "likes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20160406201001) do
     t.string   "category"
     t.string   "title"
     t.text     "content"
-    t.integer  "likes"
+    t.integer  "likes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20160406201001) do
     t.datetime "updated_at"
     t.string   "zipcode",                             null: false
     t.integer  "role",                   default: 2,  null: false
+    t.integer  "likes",                  default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

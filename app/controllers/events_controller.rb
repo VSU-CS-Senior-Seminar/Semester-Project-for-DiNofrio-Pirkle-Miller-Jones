@@ -28,6 +28,13 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
+        current_user.likes = current_user.likes + 10
+        current_user.update_attributes(:likes => current_user.likes)
+        if current_user.likes >= 100
+          if current_user.role.eql?"user"
+            current_user.update_attributes(:role => 1)
+          end
+        end
         format.html { redirect_to newsfeed_index_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -56,6 +63,13 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
+      current_user.likes = current_user.likes - 10
+      current_user.update_attributes(:likes => current_user.likes)
+      if current_user.likes < 100
+        if current_user.role.eql?"lead"
+          current_user.update_attributes(:role => 2)
+        end
+      end
       format.html { redirect_to newsfeed_index_path, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end

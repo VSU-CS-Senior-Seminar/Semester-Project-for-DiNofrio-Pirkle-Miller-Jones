@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=<%= newsfeed_index_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %></a>
+      <a class="navbar-brand" href=<%= newsfeed_index_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %> (BB: <%= current_user.likes %>)</a>
       
       <%= link_to edit_user_registration_path(current_user) do %>
         <img class="settings-logo" src="/assets/settings.png">
@@ -103,10 +103,8 @@
                   Category: <%= p.category %>
                   </br></br>
                   <p><%= p.content %></p>
-                  </br></br>
-                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> 
                   </br>
-                  <a style="color:black;"><%= link_to "Comments", post_comments_path(p) %> </p>
+                  <a style="color:black;"><%= link_to "Comments", post_comments_path(p) %>: <%= p.comments.size %> </a>
                 </td>
               </tr>
               <% end %>
@@ -142,8 +140,8 @@
                   Category: <%= p.category %>
                   </br></br>
                   <p><%= p.content %></p>
-                  </br></br>
-                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
+                  </br>
+                  <a style="color:black"><%= link_to "Comments", post_comments_path(p) %>: <%= p.comments.size %> </a>
                 </td>
               </tr>
                   <% end %>
@@ -178,8 +176,8 @@
                   Category: <%= p.category %>
                   </br></br>
                   <p><%= p.content %></p>
-                  </br></br>
-                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
+                  </br>
+                  <a style="color:black"><%= link_to "Comments", post_comments_path(p) %>: <%= p.comments.size %> </a>
                 </td>
               </tr>
                   <% end %>
@@ -211,10 +209,10 @@
                   User: <%= User.find(p.user_id).name %>
                   </br>
                   Category: <%= p.category %>
-                  </br></br>
+                  </br>
                   <p><%= p.content %></p>
                   </br></br>
-                  <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
+                  <a style="color:black"><%= link_to "Comments", post_comments_path(p) %>: <%= p.comments.size %> </a>
                 </td>
               </tr>
                   <% end %>

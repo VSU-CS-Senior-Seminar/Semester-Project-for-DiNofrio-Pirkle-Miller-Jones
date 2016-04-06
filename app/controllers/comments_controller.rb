@@ -37,6 +37,13 @@ class CommentsController < ApplicationController
     @comment.username = current_user.name
     respond_to do |format|
       if @comment.save
+        current_user.likes = current_user.likes + 1
+        current_user.update_attributes(:likes => current_user.likes)
+        if current_user.likes >= 100
+          if current_user.role.eql?"user"
+            current_user.update_attributes(:role => 1)
+          end
+        end
         format.html { redirect_to post_comments_path }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -65,6 +72,13 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
+      current_user.likes = current_user.likes - 1
+      current_user.update_attributes(:likes => current_user.likes)
+      if current_user.likes < 100
+        if current_user.role.eql?"lead"
+          current_user.update_attributes(:role => 2)
+        end
+      end
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
