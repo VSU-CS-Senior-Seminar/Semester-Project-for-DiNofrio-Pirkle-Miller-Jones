@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
   has_many :posts
   has_many :comments
-  
+  has_many :events
   def mailboxer_email(object)
     return email
   end

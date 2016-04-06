@@ -227,7 +227,32 @@
 </td>
 <tr>
   <td style="height: 325px; border: none;" >
-    <div class ="my-events"></div>
+    <div class ="my-events">
+       <table id="Newsfeed", class="table table-hover">
+            <thead>
+              <% @events.each do |e| %>
+                <% if User.find(e.user_id).eql?current_user %>
+                    <tr>
+                    <th>Title: <%= e.name %> - 
+                      <%= e.day_of %>
+                      </br>
+                      <%= link_to "edit", edit_event_path(e) %>
+                      <%= link_to 'delete', e, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  <p><%= e.content %></p>
+                </td>
+              </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+    </div>
+    
   </td>
   <td style="height: 325px; border: none;">
     <div class ="my-events"></div>
