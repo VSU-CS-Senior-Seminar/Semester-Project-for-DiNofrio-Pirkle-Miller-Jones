@@ -83,7 +83,9 @@
           <table id="newsfeed", class="table table-hover">
             <thead>
               <% @posts.each do |p| %>
-                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %> 
+                <% if !p.category.eql? 'Business' %>
+                 <% if !p.category.eql? 'Agency'%>
                   <tr>
                     <th>Title: <%= p.title %>
                     </br>
@@ -107,6 +109,8 @@
                   <a style="color:black;"><%= link_to "Comments", post_comments_path(p) %> </p>
                 </td>
               </tr>
+              <% end %>
+              <% end %>
                 <% end %>
               <% end %>
             </tbody>
@@ -225,7 +229,36 @@
     </div>
   </td>
 <td style="width: 30%; border: none;">
-  <div class="businesses"></div>
+  <div class="businesses">
+          <table id="Newsfeed", class="table table-hover">
+            <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                  <% if p.category.eql? 'Business' %>
+                    <tr>
+                    <th>Title: <%= p.title %>
+                    </br>
+                    <%if User.find(p.user_id).name.eql?current_user.name %>
+                      <%= link_to "edit", edit_post_path(p) %>
+                      <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                    </th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  Business: <%= User.find(p.user_id).name %>
+                  </br>
+                  <p><%= p.content %></p>
+                </td>
+              </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+  </div>
 </td>
 <tr>
   <td style="height: 325px; border: none;" >
@@ -257,7 +290,36 @@
     
   </td>
   <td style="height: 325px; border: none;">
-    <div class ="my-events"></div>
+    <div class ="my-events">
+          <table id="Newsfeed", class="table table-hover">
+            <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                  <% if p.category.eql? 'Agency' %>
+                    <tr>
+                    <th>Title: <%= p.title %>
+                    </br>
+                    <%if User.find(p.user_id).name.eql?current_user.name %>
+                      <%= link_to "edit", edit_post_path(p) %>
+                      <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                    </th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  Agency: <%= User.find(p.user_id).name %>
+                  </br>
+                  <p><%= p.content %></p>
+                </td>
+              </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+    </div>
   </td>
 </tr>
 </tr>
