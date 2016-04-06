@@ -15,7 +15,7 @@
       
       
       <fieldset>
-        <legend>Create A New Post</legend>
+        <legend>Post</legend>
         <div class="container2">
           <div class="field">
             <%= f.label :category %><br>
@@ -30,9 +30,10 @@
             <%= f.text_area :content %>
           </div>
           <div class="actions">
-            <%= f.submit %>
+            <%= f.submit %><i><%= link_to "back", newsfeed_index_path %></i>
           </div>
         </div>
+        
       </fieldset>
       
     <% end %>

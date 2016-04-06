@@ -15,7 +15,8 @@
  */
 .post_form {
   fieldset {
-    background: #f1f1f1;
+    //background: #f1f1f1;
+    background:rgba(255,255,255,0.5);
     box-shadow: 5px 5px 5px #000000;
     
     
@@ -85,7 +86,7 @@ form{
      border: 1px solid grey;
      height: 750px;
      overflow: auto;
-     background-color: #b0b0b0;
+     background:rgba(255,255,255,0.6);
      
      box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
     -webkit-box-shadow: inset 0px 0px 7px 1px #000000,0px -2px 5px -100px #B3B3B3;
@@ -118,11 +119,18 @@ form{
  }
 
 
-.container_login_signup {
+.container_login {
   margin: auto;
   width: 37%;
   //border: 1px solid white;
-  padding-top: 15%;
+  padding-top: 10%;
+}
+
+.container_signup {
+  margin: auto;
+  width: 37%;
+  //border: 1px solid white;
+  padding-top: 5%;
 }
 
 .containerPaginate{
@@ -144,8 +152,10 @@ form{
 html, body {
     margin: auto;
     width: 100%;
-    //background-image: url("background-transition.png");
-    background-color: #4d4d4d;
+    background-image: url("/assets/city.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    //background-color: #4d4d4d;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -40,10 +40,10 @@
   
   <ul class="nav nav-tabs">
     
-    <li class="active"><a data-toggle="tab" href="#all">All</a></li>
-    <li><a data-toggle="tab" href="#jobs">Jobs</a></li>
-    <li><a data-toggle="tab" href="#misc">Misc</a></li>
-    <li><a data-toggle="tab" href="#lostnfound">Lost-n-Found</a></li>
+    <li class="active"><a data-toggle="tab" href="#all" style="color:white; background-color:rgba(0,0,0,0.7);">All</a></li>
+    <li ><a data-toggle="tab" href="#jobs" style="color:white; background-color:rgba(0,0,0,0.7);">Jobs</a></li>
+    <li ><a data-toggle="tab" href="#misc" style="color:white; background-color:rgba(0,0,0,0.7);">Misc</a></li>
+    <li ><a data-toggle="tab" href="#lostnfound" style="color:white; background-color:rgba(0,0,0,0.7);">Lost-n-Found</a></li>
     <button class="button" style="float: right"><%= link_to 'New Post', new_post_url, {:style=>'color:#ffffff;'} %></button>
   </ul>
 
@@ -58,22 +58,28 @@
           <% @posts.each do |p| %>
             <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
               <tr>
-                <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
-                <th>Title: <%= p.title %></th>
+                <th>Title: <%= p.title %>
+                </br>
+                <%if User.find(p.user_id).name.eql?current_user.name %>
+                  <%= link_to "edit", edit_post_path(p) %>
+                  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %></th>
               </tr>
         </thead>
         <tbody> 
           <tr>
             <td>
+              User: <%= User.find(p.user_id).name %>
+              </br>
               Category: <%= p.category %>
               </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
-            </td>
-            <td>
-              <%= p.content %>
+              <p><%= p.content %></p>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> 
+              </br>
+              <a style="color:black;"><%= link_to "Comments", post_comments_path(p) %> </p>
             </td>
           </tr>
-         
             <% end %>
           <% end %>
         </tbody>
@@ -88,19 +94,25 @@
             <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
               <% if p.category.eql? 'Jobs' %>
                 <tr>
-                  <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
-                  <th>Title: <%= p.title %></th>
-                </tr>
+                <th>Title: <%= p.title %>
+                  </br>
+                  <%if User.find(p.user_id).name.eql?current_user.name %>
+                    <%= link_to "edit", edit_post_path(p) %>
+                    <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </th>
+              </tr>
         </thead>
         <tbody> 
           <tr>
             <td>
+              User: <%= User.find(p.user_id).name %>
+              </br>
               Category: <%= p.category %>
               </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
-            </td>
-            <td>
-              <%= p.content %>
+              <p><%= p.content %></p>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
             </td>
           </tr>
               <% end %>
@@ -118,19 +130,25 @@
             <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
               <% if p.category.eql? 'Misc' %>
                 <tr>
-                  <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
-                  <th>Title: <%= p.title %></th>
-                </tr>
+                <th>Title: <%= p.title %>
+                </br>
+                <%if User.find(p.user_id).name.eql?current_user.name %>
+                  <%= link_to "edit", edit_post_path(p) %>
+                  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+                </th>
+              </tr>
         </thead>
         <tbody> 
           <tr>
             <td>
+              User: <%= User.find(p.user_id).name %>
+              </br>
               Category: <%= p.category %>
               </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
-            </td>
-            <td>
-              <%= p.content %>
+              <p><%= p.content %></p>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
             </td>
           </tr>
               <% end %>
@@ -147,19 +165,25 @@
             <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
               <% if p.category.eql? 'Lost & Found' %>
                 <tr>
-                  <th style="width: 33%;">User: <%= User.find(p.user_id).name %></th>
-                  <th>Title: <%= p.title %></th>
-                </tr>
+                <th>Title: <%= p.title %>
+                </br>
+                <%if User.find(p.user_id).name.eql?current_user.name %>
+                  <%= link_to "edit", edit_post_path(p) %>
+                  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+                </th>
+              </tr>
         </thead>
         <tbody> 
           <tr>
             <td>
+              User: <%= User.find(p.user_id).name %>
+              </br>
               Category: <%= p.category %>
               </br></br>
-              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <%= link_to "Comments", post_comments_path(p) %>
-            </td>
-            <td>
-              <%= p.content %>
+              <p><%= p.content %></p>
+              </br></br>
+              <button heref="#" class="button">Like</button>  Likes: <%= p.likes %> <a style="color:black"><%= link_to "Comments", post_comments_path(p) %> </a>
             </td>
           </tr>
               <% end %>

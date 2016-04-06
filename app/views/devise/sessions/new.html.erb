@@ -1,5 +1,5 @@
-<h2></h2>
-<div class="container_login_signup">
+<div class="container_login">
+  <img style="width: 200px; height: 200px; display: block; margin: 0 auto;"src="/assets/bigbrotherlogo.png">
   <div class="post_form">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     
@@ -11,21 +11,21 @@
               <%= f.email_field :email, autofocus: true %>
             </div>
           
-            <div class="field">
+            <div class="field" style="color:black">
               <%= f.label :password %><br />
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
           
             <% if devise_mapping.rememberable? -%>
-              <div class="field">
+              <div class="field" style="color:black">
                 <%= f.check_box :remember_me %>
                 <%= f.label :remember_me %>
               </div>
             <% end -%>
           
-            <div class="actions">
+            <div class="actions" style="color:black">
               <%= f.submit "Log in" %>
-              <%= link_to "Sign Up", new_user_registration_path %>
+             <a style="color:white"> <%= link_to "Sign Up", new_user_registration_path %> </a>
             </div>
             
           </div>

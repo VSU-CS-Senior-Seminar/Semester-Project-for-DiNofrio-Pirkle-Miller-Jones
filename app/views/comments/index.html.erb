@@ -34,8 +34,10 @@
 <h1>Listing Comments</h1>
 
 <div class="containerNewButton">
-  <button class="button"><%= link_to 'New Comment', new_post_comment_path, {:style=>'color:#ffffff;'} %></button>
+  <button class="button" style="float:right"><%= link_to 'New Comment', new_post_comment_path, {:style=>'color:#ffffff;'} %>
 </div>
+</br>
+<p><%= link_to 'back', newsfeed_index_path %></p>
 
 <div class="container1">
   <table id="Newsfeed", class="table table-hover">

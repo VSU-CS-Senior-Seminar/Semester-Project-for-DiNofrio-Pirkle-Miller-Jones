@@ -63,7 +63,7 @@ class PostsController < ApplicationController
     @post.destroy
     authorize @post
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to newsfeed_index_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

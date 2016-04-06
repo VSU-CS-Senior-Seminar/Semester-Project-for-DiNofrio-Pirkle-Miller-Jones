@@ -33,9 +33,9 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<h1>Edit <%= current_user.name %></h2>
 
 <div class="container2">
+  <img style="width: 200px; height: 200px; display: block; margin: 0 auto;"src="/assets/bigbrotherlogo.png">
   <div class="post_form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -46,12 +46,12 @@
             <table>
               <tr>
                 <td>
-              <div class="field">
+              <div class="field" style="color: black">
                 <%= f.label :name %><br />
                 <%= f.email_field :name %>
               </div>
             
-              <div class="field">
+              <div class="field" style="color: black">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true %>
               </div>
@@ -60,19 +60,19 @@
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
             
-              <div class="field">
+              <div class="field" style="color: black">
                 <%= f.label :new_password %> <br /> <!-- was :password -->
                 <%= f.password_field :password, autocomplete: "off" %>
                 </br>
                 <i>(leave blank if no change)</i>
               </div>
             
-              <div class="field">
+              <div class="field" style="color: black">
                 <%= f.label :confirm %> <!-- was :password_confirmation -->
                 <%= f.password_field :password_confirmation, autocomplete: "off" %>
               </div>
             <br />
-              <div class="field">
+              <div class="field" style="color: black">
                 <%= f.label :current_password %> <br />
                 <%= f.password_field :current_password, autocomplete: "off" %>
                 <i>(*to confirm your changes)</i>
@@ -85,7 +85,7 @@
             </td>
             <td style="width: 30px"></td>
             <td>
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+            <p style="color: black">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
             
             </td>
             </tr>
