@@ -3,5 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-# jQuery ->
-#     $('#event_start_time').datepicker()
+jQuery ->
+    $('#event_day_of').datepicker({ 
+        dateFormat: 'yy-mm-dd'});
