@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20160406211404) do
   create_table "comments", force: :cascade do |t|
     t.string   "username"
     t.text     "content"
-    t.integer  "likes", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "likes",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
     t.integer  "post_id"
   end
@@ -101,9 +101,9 @@ ActiveRecord::Schema.define(version: 20160406211404) do
     t.string   "category"
     t.string   "title"
     t.text     "content"
-    t.integer  "likes", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "likes",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
   end
 
