@@ -55,7 +55,7 @@
         <td colspan="3"></td>
       </tr>
   
-    
+      <% if current_user.admin? %>
       <% @posts.each do |post| %>
         <tr>
           <td><%= post.category %></td>
@@ -63,11 +63,26 @@
           <td><%= post.content %></td>
           <td><%= post.likes %></td>
           <td><%= link_to 'Show', post %></td>
-          <% if post.user == current_user %>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
+      <% end %>
+      <% end %>
+      
+      <% if current_user.lead? %>
+      <% @posts.each do |post| %>
+      <% if User.find(post.user_id).zipcode.eql?current_user.zipcode%>
+        <tr>
+          <td><%= post.category %></td>
+          <td><%= post.title %></td>
+          <td><%= post.content %></td>
+          <td><%= post.likes %></td>
+          <td><%= link_to 'Show', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      <% end %>
       <% end %>
     </tbody>
   </table>
