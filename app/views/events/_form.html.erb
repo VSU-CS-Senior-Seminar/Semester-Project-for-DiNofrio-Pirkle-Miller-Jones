@@ -1,30 +1,39 @@
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="container2">
+  <div class="post_form">
+    <%= form_for(@event) do |f| %>
+      <% if @event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    
+          <ul>
+          <% @event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <fieldset>
+        <legend>Event</legend>
+          <div class="container2">
+            <div class="field" style="color:black">
+              <%= f.label :name %><br>
+              <%= f.text_field :name %>
+            </div>
+            <div class="field" style="color:black">
+              <%= f.label :start_time %><br>
+              <%= f.text_field :day_of %>
+              <!--datetime_select-->
+            </div>
+            <div class="field" style="color:black">
+              <%= f.label :content %><br>
+              <%= f.text_field :content %>
+            </div>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          </div>
+      </fieldset>
+      
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :start_time %><br>
-    <%= f.text_field :day_of %>
-    <!--datetime_select-->
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
