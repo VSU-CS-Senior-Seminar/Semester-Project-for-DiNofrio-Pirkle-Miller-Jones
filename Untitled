@@ -11,13 +11,10 @@ rails s -b $IP -p $PORT
 
 TODO:
 
-**get like buttons working
-**figure out leads
-**event calendar
-group creation + messaging //outbox and trashbox
-business/agency broadcast area
-admin dashboard //if he's lucky
 **authorization //in progress
-filtered newsfeed page by category //in progress
+filtering newsfeed page by category //in progress as categories are added
+messaging outbox and trashbox //extra
+admin dashboard //extra
+
 
 **priority

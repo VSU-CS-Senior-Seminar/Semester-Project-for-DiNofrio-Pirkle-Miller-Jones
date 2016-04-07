@@ -7,11 +7,11 @@ class UserPolicy
   end
 
   def index?
-    @current_user.admin?
+    @current_user.admin? || @current_user.lead?
   end
 
   def show?
-    @current_user.admin? || @current_user == @user
+    @current_user.admin? || @current_user.lead? || @current_user == @user
   end
 
   def create?
@@ -23,7 +23,7 @@ class UserPolicy
   end
 
   def update?
-    @current_user.admin? || @current_user == @user
+    @current_user.admin? || @current_user.lead? || @current_user == @user
   end
 
   def edit?

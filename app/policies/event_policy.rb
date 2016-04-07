@@ -1,9 +1,9 @@
-class PostPolicy
+class EventPolicy
   attr_reader :current_user, :model
-  
+
   def initialize(current_user, model)
     @current_user = current_user
-    @post = model
+    @event = model
   end
 
   def index?
@@ -11,9 +11,9 @@ class PostPolicy
   end
 
   def show?
-    @current_user.admin? || @current_user.lead? || @current_user == User.find(@post.user_id)
+    @current_user.admin? || @current_user.lead? || @current_user == User.find(@event.user_id)
   end
-
+  
   def create?
     true
   end
@@ -23,7 +23,7 @@ class PostPolicy
   end
 
   def update?
-    @current_user.admin? || @current_user.lead? || @current_user == User.find(@post.user_id)
+    @current_user.admin? || @current_user.lead? || @current_user == User.find(@event.user_id)
   end
 
   def edit?
@@ -31,7 +31,7 @@ class PostPolicy
   end
 
   def destroy?
-    @current_user.admin? || @current_user.lead? || @current_user == User.find(@post.user_id)
+    @current_user.admin? || @current_user.lead? || @current_user == User.find(@event.user_id)
   end
 
   def scope

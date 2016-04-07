@@ -1,31 +1,36 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
-   # @events_by_date = 
+    @events = Event.all.reverse_order.paginate(page: params[:page],per_page: 5)
+    authorize Event
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    authorize @event
   end
 
   # GET /events/new
   def new
     @event = current_user.events.build
+    authorize @event
   end
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = current_user.events.build(event_params)
+    authorize @event
     respond_to do |format|
       if @event.save
         current_user.likes = current_user.likes + 10
@@ -47,6 +52,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    authorize @event
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -62,6 +68,7 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event.destroy
+    authorize @event
     respond_to do |format|
       current_user.likes = current_user.likes - 10
       current_user.update_attributes(:likes => current_user.likes)

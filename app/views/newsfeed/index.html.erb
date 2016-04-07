@@ -20,8 +20,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'NewsFeed', newsfeed_index_path %></li>
+        <% if current_user.role.eql?"admin" %>
+        <li><%= link_to 'Users', users_path %></li>
         <li><%= link_to 'Posts', posts_path %></li>
+        <li><%= link_to 'Events', events_path %></li>
+        <% end %>
+        <% if current_user.role.eql?"lead" %>
+        <li><%= link_to 'Users', users_path %></li>
+        <li><%= link_to 'Posts', posts_path %></li>
+        <li><%= link_to 'Events', events_path %></li>
+        <% end %>
       </ul>
        
       </form>
@@ -32,7 +40,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+<p id="notice"><%= notice %></p>
 
 <h1>Newsfeed</h1>
 
