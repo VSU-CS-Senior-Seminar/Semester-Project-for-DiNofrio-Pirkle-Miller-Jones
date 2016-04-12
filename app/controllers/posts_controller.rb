@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     authorize @post
     respond_to do |format|
       if @post.save
-        current_user.likes = current_user.likes + 5
+        current_user.likes = (current_user.likes + 5)
         current_user.update_attributes(:likes => current_user.likes)
         if current_user.likes >= 100
           if current_user.role.eql?"user"

@@ -35,14 +35,14 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'https://group-project-workspace-cjdinofrio1.c9users.io'
-  config.action_mailer.default_url_options = {host: 'https://group-project-workspace-cjdinofrio1.c9users.io' }
+  #host = 'https://group-project-workspace-cjdinofrio1.c9users.io'
+  #config.action_mailer.default_url_options = {host: 'https://group-project-workspace-cjdinofrio1.c9users.io' }
   #host = 'https://big-brother-jojones90.c9users.io'
   #config.action_mailer.default_url_options = {host: 'https://big-brother-jojones90.c9users.io' }
   #host = 'https://senior-seminar-workspace-taylerm92.c9users.io'
   #config.action_mailer.default_url_options = {host: 'https://senior-seminar-workspace-taylerm92.c9users.io' }
-  #host = 'https://big-brother-project-acpirkle.c9users.io'
-  #config.action_mailer.default_url_options = {host: 'https://big-brother-project-acpirkle.c9users.io' }
+  host = 'https://big-brother-project-acpirkle.c9users.io'
+  config.action_mailer.default_url_options = {host: 'https://big-brother-project-acpirkle.c9users.io' }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '2525',

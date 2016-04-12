@@ -10,11 +10,12 @@ rails s -b $IP -p $PORT
 
 
 TODO:
-
-**authorization //in progress
+**create seperate pages for businesses and agencies to post only 
 filtering newsfeed page by category //in progress as categories are added
+get rid of lingering 'likes'
 messaging outbox and trashbox //extra
 admin dashboard //extra
+
 
 
 **priority
