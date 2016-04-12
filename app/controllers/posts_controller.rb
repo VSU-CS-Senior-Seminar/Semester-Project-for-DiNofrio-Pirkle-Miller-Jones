@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     authorize @post
     respond_to do |format|
       if @post.save
-        current_user.likes = current_user.likes + 5
+        current_user.likes = (current_user.likes + 5)
         current_user.update_attributes(:likes => current_user.likes)
         if current_user.likes >= 100
           if current_user.role.eql?"user"
@@ -67,16 +67,17 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @user = User.find(@post.user_id)
+    @user.likes = @user.likes - 5
+    @user.update_attributes(:likes => @user.likes)
+    if @user.likes < 100
+      if @user.role.eql?"lead"
+        @user.update_attributes(:role => 2)
+      end
+    end
     @post.destroy
     authorize @post
     respond_to do |format|
-      current_user.likes = current_user.likes - 5
-      current_user.update_attributes(:likes => current_user.likes)
-      if current_user.likes < 100
-        if current_user.role.eql?"lead"
-          current_user.update_attributes(:role => 2)
-        end
-      end
       format.html { redirect_to newsfeed_index_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end

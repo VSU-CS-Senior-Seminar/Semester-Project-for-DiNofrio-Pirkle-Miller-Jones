@@ -11,7 +11,7 @@
       <a class="navbar-brand" href=<%= newsfeed_index_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %> (BB: <%= current_user.likes %>)</a>
       
       <%= link_to edit_user_registration_path(current_user) do %>
-        <img class="settings-logo" src="/assets/settings.png">
+        <img class="settings-logo" src="/settings.png">
       <% end %>
      
       
@@ -42,7 +42,7 @@
 </nav>
 
 <div class="container">
-<img style="width: 200px; height: 200px; display: block; margin: 0 auto;"src="/assets/bigbrotherlogo.png">
+<img style="width: 200px; height: 200px; display: block; margin: 0 auto;"src="/bigbrotherlogo.png">
 
 <%= render 'form' %>
 </div>

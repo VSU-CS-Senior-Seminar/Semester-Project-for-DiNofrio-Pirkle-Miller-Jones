@@ -70,15 +70,16 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @user = User.find(@comment.user_id)
+    @user.likes = @user.likes - 1
+    @user.update_attributes(:likes => @user.likes)
+    if @user.likes < 100
+      if @user.role.eql?"lead"
+        @user.update_attributes(:role => 2)
+      end
+    end
     @comment.destroy
     respond_to do |format|
-      current_user.likes = current_user.likes - 1
-      current_user.update_attributes(:likes => current_user.likes)
-      if current_user.likes < 100
-        if current_user.role.eql?"lead"
-          current_user.update_attributes(:role => 2)
-        end
-      end
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
