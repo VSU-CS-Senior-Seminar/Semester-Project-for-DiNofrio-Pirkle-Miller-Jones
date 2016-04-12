@@ -11,7 +11,7 @@ class EventPolicy
   end
 
   def show?
-    @current_user.admin? || @current_user.lead? || @current_user == User.find(@event.user_id)
+    @current_user.admin? || @current_user.zipcode == User.find(@event.user_id).zipcode
   end
   
   def create?

@@ -11,7 +11,7 @@ class PostPolicy
   end
 
   def show?
-    @current_user.admin? || @current_user.lead? || @current_user == User.find(@post.user_id)
+    @current_user.admin? || @current_user.zipcode == User.find(@post.user_id).zipcode
   end
 
   def create?
