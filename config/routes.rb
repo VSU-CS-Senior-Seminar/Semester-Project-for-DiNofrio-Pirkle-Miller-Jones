@@ -26,10 +26,14 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  
   root 'newsfeed#index'
+  
   get 'comments/index'
   get 'newsfeed/index'
   get 'users/index'
+  get 'newsfeed/businesses'
+  get 'newsfeed/agency'
   
   #root 'login#index', as: 'login'
   #root 'newsfeed#index', as: 'newsfeed'

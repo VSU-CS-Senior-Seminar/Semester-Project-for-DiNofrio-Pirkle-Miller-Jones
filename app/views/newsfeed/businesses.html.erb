@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=<%= newsfeed_index_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %> (BB: <%= current_user.likes %>)</a>
+      <a class="navbar-brand" href=<%= newsfeed_businesses_path %>>Good <%=(03..15).include?(Time.now.hour) ? 'Morning' : 'Afternoon'%>, <%= current_user.name %> (BB: <%= current_user.likes %>)</a>
       
       <%= link_to edit_user_registration_path(current_user) do %>
         <img class="settings-logo" src="/settings.png">
@@ -40,37 +40,43 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<p id="notice"><%= notice %></p>
 
-
-<h1>Listing Comments</h1>
-
+<h1>Business</h1>
 <div class="containerNewButton">
-  <button class="button" style="float:right"><%= link_to 'New Comment', new_post_comment_path, {:style=>'color:#ffffff;'} %>
+  <button class="button" ><%= link_to 'New Post', new_post_url, {:style=>'color:#ffffff;'} %></button>
 </div>
-</br>
-<p><%= link_to 'back', newsfeed_index_path %></p>
-
-<div class="container1">
-  <table id="Newsfeed", class="table table-hover">
-      <thead>
-        <% @comments.each do |c| %>
-        <tr>
-          <th colspan="2">User: <%= c.username %></th>
-        </tr>
-      </thead>
-    <tbody> 
-      <tr>
-        <td colspan="2">
-          <%= c.content %>
-        </td>
-      </tr>
-        <% end %>
-    </tbody>
-  </table>
-</div>
-
-<br>
-
-
-
-
+  
+  <div class="container1">
+      <table id="Newsfeed", class="table table-hover">
+        <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %> 
+                <% if p.category.eql? 'Business' %>
+                  <tr>
+                    <th>Title: <%= p.title %>
+                    </br>
+                    <%if User.find(p.user_id).name.eql?current_user.name %>
+                      <%= link_to "edit", edit_post_path(p) %>
+                      <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %></th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  User: <%= User.find(p.user_id).name %>
+                  </br>
+                  Category: <%= p.category %>
+                  </br></br>
+                  <p><%= p.content %></p>
+                  </br>
+                  <a style="color:black;"><%= link_to "Comments", post_comments_path(p) %>: <%= p.comments.size %> </a>
+                </td>
+              </tr>
+              <% end %>
+              <% end %>
+                <% end %>
+            </tbody>
+      </table>
+  </div>

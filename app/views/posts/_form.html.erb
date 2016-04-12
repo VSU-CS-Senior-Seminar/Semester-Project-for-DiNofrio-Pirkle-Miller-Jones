@@ -19,7 +19,21 @@
         <div class="container2">
           <div class="field">
             <%= f.label :category %><br>
-            <%= f.select :category, Post::CATEGORY_TYPES, prompt: 'Select Category' %>
+            <% if @current_user.role.eql?"business" %>
+              <%= f.select :category, Post::CATEGORY_TYPES, prompt: 'Select Category', :disabled => ["Lost & Found", "Jobs", "Misc", "Agency"] %>
+            <% end %>
+            <% if @current_user.role.eql?"agency" %>
+              <%= f.select :category, Post::CATEGORY_TYPES, prompt: 'Select Category', :disabled => ["Lost & Found", "Jobs", "Misc", "Business"] %>
+            <% end %>
+            <% if @current_user.role.eql?"admin"%>
+              <%= f.select :category, Post::CATEGORY_TYPES, prompt: 'Select Category', :disabled => ["Agency", "Business"] %>
+            <% end %>
+            <% if @current_user.role.eql?"lead"%>
+              <%= f.select :category, Post::CATEGORY_TYPES, prompt: 'Select Category', :disabled => ["Agency", "Business"] %>
+            <% end %>
+            <% if @current_user.role.eql?"user"%>
+              <%= f.select :category, Post::CATEGORY_TYPES, prompt: 'Select Category', :disabled => ["Agency", "Business"] %>
+            <% end %>
           </div>
           <div class="field">
             <%= f.label :title %><br>
