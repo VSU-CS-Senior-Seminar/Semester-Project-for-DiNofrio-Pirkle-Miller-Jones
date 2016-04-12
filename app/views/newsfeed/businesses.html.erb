@@ -51,7 +51,7 @@
       <table id="Newsfeed", class="table table-hover">
         <thead>
               <% @posts.each do |p| %>
-                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %> 
+                <% if User.find(p.user_id).eql?current_user %> 
                 <% if p.category.eql? 'Business' %>
                   <tr>
                     <th>Title: <%= p.title %>
