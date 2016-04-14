@@ -34,13 +34,20 @@
        
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Inbox", conversations_path %></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="">Inbox
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= mailbox_section 'inbox', @box %></li>
+          <li><%= mailbox_section 'sent', @box %></li>
+          <li><%= mailbox_section 'trash', @box %></li> 
+        </ul>
+      </li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<p id="notice"><%= notice %></p>
 
 <h1>Newsfeed</h1>
 
@@ -98,7 +105,7 @@
                     <th>Title: <%= p.title %>
                     </br>
                     <%if User.find(p.user_id).name.eql?current_user.name %>
-                      <%= link_to "edit", edit_post_path(p) %>
+                      <a style="color:white"><%= link_to "edit", edit_post_path(p) %></a>
                       <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
                     <% end %></th>
                   </tr>

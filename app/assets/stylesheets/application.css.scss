@@ -194,6 +194,7 @@ form{
 
 html, body {
     margin: auto;
+    height: 100%;
     width: 100%;
     background-image: url("/city.jpg");
     background-repeat: no-repeat;
@@ -234,4 +235,14 @@ back_button{
 
 .messages {
   margin: 0;
+}
+
+.dropdown-menu{
+    
+    .active{
+        a{
+            background-color: black;
+            
+        }
+    }
 }

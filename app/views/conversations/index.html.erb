@@ -34,7 +34,15 @@
        
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Inbox", conversations_path %></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="">Inbox
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= mailbox_section 'inbox', @box %></li>
+          <li><%= mailbox_section 'sent', @box %></li>
+          <li><%= mailbox_section 'trash', @box %></li> 
+        </ul>
+      </li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -43,17 +51,10 @@
 
 <div><h1>Your Conversations</h1></div>
 
-<div class="col-sm-3">
-    <ul class="nav nav-pills nav-stacked">
-      <%= mailbox_section 'inbox', @box %>
-      <%= mailbox_section 'sent', @box %>
-      <%= mailbox_section 'trash', @box %>
-    </ul>
-  </div>
+
   <div class="container2">
     <p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
-    <div class="row">
-  
+    
     <ul class="list-group">
       <%= render partial: 'conversations/conversation', collection: @conversations %>
   </ul>
