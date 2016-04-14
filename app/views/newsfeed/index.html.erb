@@ -57,8 +57,9 @@
     
     <li class="active"><a data-toggle="tab" href="#all" style="color:white; background-color:rgba(0,0,0,0.7);">All</a></li>
     <li ><a data-toggle="tab" href="#jobs" style="color:white; background-color:rgba(0,0,0,0.7);">Jobs</a></li>
-    <li ><a data-toggle="tab" href="#misc" style="color:white; background-color:rgba(0,0,0,0.7);">Misc</a></li>
     <li ><a data-toggle="tab" href="#lostnfound" style="color:white; background-color:rgba(0,0,0,0.7);">Lost-n-Found</a></li>
+    <li ><a data-toggle="tab" href="#forsale" style="color:white; background-color:rgba(0,0,0,0.7);">For Sale</a></li>
+    <li ><a data-toggle="tab" href="#misc" style="color:white; background-color:rgba(0,0,0,0.7);">Misc</a></li>
     <button class="button" style="float: right"><%= link_to 'New Post', new_post_url, {:style=>'color:#ffffff;'} %></button>
   </ul>
 
@@ -236,6 +237,42 @@
             </tbody>
           </table>
         </div>
+
+        <div id="forsale" class="tab-pane fade">
+          <table id="Newsfeed", class="table table-hover">
+            <thead>
+              <% @posts.each do |p| %>
+                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %>
+                  <% if p.category.eql? 'For Sale' %>
+                    <tr>
+                    <th>Title: <%= p.title %>
+                    </br>
+                    <%if User.find(p.user_id).name.eql?current_user.name %>
+                      <%= link_to "edit", edit_post_path(p) %>
+                      <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                    </th>
+                  </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>
+                  User: <%= User.find(p.user_id).name %>
+                  </br>
+                  Category: <%= p.category %>
+                  </br>
+                  <p><%= p.content %></p>
+                  </br></br>
+                  <a style="color:black"><%= link_to "Comments", post_comments_path(p) %>: <%= p.comments.size %> </a>
+                </td>
+              </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
         
       </div>
       
