@@ -77,12 +77,23 @@
           <%= date.day %>
           <ul>
             <% @events.each do |event| %>
+            
             <% if event.day_of == date %>
-            <% if User.find(event.user_id).zipcode.eql?current_user.zipcode %>
-              <li>
-                <%= link_to event.name, event %>
-              </li>
-            <% end %>
+              <% if event.day_of < Date.today %>
+                <% @user = User.find(event.user_id)
+                @user.likes = @user.likes - 10
+                @user.update_attributes(:likes => @user.likes)
+                if @user.likes < 100
+                  if @user.role.eql?"lead"
+                    @user.update_attributes(:role => 2)
+                  end
+                end
+                event.destroy %>
+              <% elsif User.find(event.user_id).zipcode.eql?current_user.zipcode %>
+                <li>
+                  <%= link_to event.name, event %>
+                </li>
+              <% end %>
             <% end %>
           </ul>
             <% end %>
@@ -99,7 +110,17 @@
           <table id="newsfeed", class="table table-hover">
             <thead>
               <% @posts.each do |p| %>
-                <% if User.find(p.user_id).zipcode.eql?current_user.zipcode %> 
+              <% if (Time.now - p.created_at) > 3600 %>
+                <% @user = User.find(p.user_id)
+                @user.likes = @user.likes - 5
+                @user.update_attributes(:likes => @user.likes)
+                if @user.likes < 100
+                  if @user.role.eql?"lead"
+                    @user.update_attributes(:role => 2)
+                  end
+                end
+                p.destroy %>
+                <% elsif User.find(p.user_id).zipcode.eql?current_user.zipcode %> 
                 <% if !p.category.eql? 'Business' %>
                  <% if !p.category.eql? 'Agency'%>
                   <tr>
