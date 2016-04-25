@@ -63,3 +63,5 @@ end
 gem 'figaro'
 
 gem 'pundit'
+
+gem 'tzinfo-data'

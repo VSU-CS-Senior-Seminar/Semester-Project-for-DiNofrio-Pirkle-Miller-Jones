@@ -72,20 +72,20 @@
          </br></br>
       </div>
       
-      <div id="events">
-        <%= calendar do |date| %>
+      <div id="events"> 
+        <%= calendar do |date| %> 
           <%= date.day %>
           <ul>
-            <% @events.each do |event| %>
+            <% @events.each do |event| %>                        <!-- Runs through all events -->
             
             <% if event.day_of == date %>
-              <% if event.day_of < Date.today %>
+              <% if event.day_of < Date.today %>                 <!-- Checks if event ocurred previous to today -->
                 <% @user = User.find(event.user_id)
-                @user.likes = @user.likes - 10
+                @user.likes = @user.likes - 10                   # Decrements BBPoints
                 @user.update_attributes(:likes => @user.likes)
-                if @user.likes < 100
-                  if @user.role.eql?"lead"
-                    @user.update_attributes(:role => 2)
+                if @user.likes < 100                             # BBPoint check if BBPoints falls below 100
+                  if @user.role.eql?"lead"                       # Check if user role = lead
+                    @user.update_attributes(:role => 2)          # Assign lead(1) to user(2)
                   end
                 end
                 event.destroy %>
@@ -109,14 +109,14 @@
         <div id="all" class="tab-pane fade in active">
           <table id="newsfeed", class="table table-hover">
             <thead>
-              <% @posts.each do |p| %>
-              <% if (Time.now - p.created_at) > 3600 %>
+              <% @posts.each do |p| %>                         <!-- Runs through all posts -->
+              <% if (Time.now - p.created_at) > 3600 %>        <!-- Checks if post is older than 1 hour -->
                 <% @user = User.find(p.user_id)
-                @user.likes = @user.likes - 5
+                @user.likes = @user.likes - 5                  # Decrements BBPoints 
                 @user.update_attributes(:likes => @user.likes)
-                if @user.likes < 100
-                  if @user.role.eql?"lead"
-                    @user.update_attributes(:role => 2)
+                if @user.likes < 100                           # BBPoint check if BBPoints falls below 100
+                  if @user.role.eql?"lead"                     # Check if user role = lead
+                    @user.update_attributes(:role => 2)        # Assign lead(1) to user(2)
                   end
                 end
                 p.destroy %>
